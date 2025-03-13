@@ -1,0 +1,62 @@
+<div class="row cont">
+  <h1 class="mt-2"> Bienvenue dans Sen Météo</h1>
+  <div class="search-box">
+    <div class="input-group mt-5">
+      <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="city"
+      placeholder="Entrez le nom d'une ville"
+      (keyup.enter)="searchWeather()">
+
+      <div class="input-group-append">
+        <button class="input-group-text btn btn-outline-primary" (click)="searchWeather()">Rechercher</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message d'erreur -->
+  <div *ngIf="error" class="error-message">
+    <h5>{{ error }}</h5>
+  </div>
+
+  <!-- Affichage des données météo seulement s'il n'y a pas d'erreur -->
+  <div *ngIf="weatherData && !error" class="weather-info">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="col-sm-12 text-center">
+
+          <h2>Météo de {{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+
+          <div class="col-sm-12">
+            <span class="temp"><img src="https://openweathermap.org/img/wn/{{weatherData.weather[0].icon }}.png" alt="icon météo">
+              {{ weatherData.main.temp | number: '1.0-0' }} &#176;F
+            </span>
+            <p class="text-uppercase font-italic font-weight-bold">{{ weatherData.weather[0].description }}</p>
+          </div>
+
+        </div>
+
+        <table class="table table-light table-striped table-bordered table-sm" style="width: 100%; font-size: 1.2em;">
+          <tbody>
+            <tr>
+              <td>Humidité</td><td>{{ weatherData.main.humidity }} %</td>
+            </tr>
+            <tr>
+              <td>Pression</td><td>{{ weatherData.main.pressure }} hpa</td>
+            </tr>
+            <tr>
+              <td>Lever du soleil</td><td>{{ weatherData.sys.sunrise * 1000 | date: 'HH:mn'}}</td>
+            </tr>
+            <tr>
+              <td>Coucher du soleil</td><td>{{ weatherData.sys.sunset * 1000| date: 'HH:mn'}}</td>
+            </tr>
+            <tr>
+              <td>Coordonnées géoographiques</td><td>Latitude: {{ weatherData.coord.lat}}, Longitude: {{ weatherData.coord.lon}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.cont{
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-info {
+  margin-top: 10px;
+  padding-bottom: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 400px;
+}
+
+.input-group {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+:host {
+  display: block;
+  background-color: #deedfa;
+  padding: 20px;
+  border-radius: 8px;
+  padding-top: 40px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform:uppercase ;
+  font-size: 4rem;
+}
